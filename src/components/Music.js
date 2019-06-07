@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-const FETCH_MUSIC_API = 'http://127.0.0.1:5000';
+import { FETCH_MUSIC_API } from '../apis';
 
 class Music extends Component {
   state = {
@@ -17,10 +16,6 @@ class Music extends Component {
   stopMIDI = () => {
     window.MIDIjs.stop();
     this.setState({ progress: 0 });
-  }
-
-  pauseMIDI = () => {
-    window.MIDIjs.pause();
   }
 
   componentDidMount() {
@@ -72,7 +67,6 @@ class Music extends Component {
                   aria-valuemin="0" aria-valuemax="100" />
               </div>
               <button onClick={this.playMIDI} className="btn btn-primary mx-1">Play</button>
-              <button onClick={this.stopMIDI} className="btn btn-warning mx-1">Pause</button>
               <button onClick={this.stopMIDI} className="btn btn-danger mx-1">Stop</button>
               <a className="btn btn-info" href={this.state.url}>Download</a>
             </div>
